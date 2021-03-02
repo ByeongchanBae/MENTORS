@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :find_booking, only: [:edit, :update, :destroy]
+
   def new
     @booking = Booking.new
   end
@@ -15,21 +17,26 @@ class BookingsController < ApplicationController
     end
   end
 
-  def index
-  end
-
-  def update
-  end
-
   def edit
   end
 
+  def update
+    @booking.update(booking_params)
+    redirect_to dashboard_path
+  end
+
   def destroy
+    @booking.destroy
+    redirect_to dashboard_path
   end
 
   private
 
+  def find_booking
+    @booking = Booking.find(params[:id])
+  end
+
   def booking_params
-  params.require(:booking).permit(:start_date, :end_date, :price)
+    params.require(:booking).permit(:start_date, :end_date, :price)
   end
 end
