@@ -19,7 +19,9 @@
       <td><%= mentor.description %></td>
       <td><%= mentor.price %></td>
       <td><%= link_to 'Show', mentor %></td>
-      <td><%= link_to 'Edit', edit_mentor_path(mentor) %></td>
+      <% if mentor.user == current_user %>
+        <td><%= link_to 'Edit', edit_mentor_path(mentor) %></td>
+      <% end %>
     <%end%>
   </tbody>
 </table>
