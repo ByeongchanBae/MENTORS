@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :mentors do
     resources :bookings, only: [ :new, :create ]
   end
-  resources :bookings, only: [ :index, :destroy, :update, :edit ]
+  resources :bookings, only: [ :show, :index, :destroy, :update, :edit ]
   resource :dashboard, only: [ :show ]
 end
