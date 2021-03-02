@@ -1,0 +1,10 @@
+<div class="bg-light">
+  <div class="jumbotron">
+    <h1 class="display-4"><%= @mentor.title %></h1>
+    <h3><%= @mentor.speciality %></h3>
+    <p class="lead"><%= @mentor.description %> | <%= @mentor.price %></p>
+    <hr class="my-4">
+  </div>
+</div>
+  <%= link_to 'Edit', edit_mentor_path(@mentor), class:"btn btn-secondary" %>
+  <%= link_to 'Back', mentors_path, class:"btn btn-secondary" %>
