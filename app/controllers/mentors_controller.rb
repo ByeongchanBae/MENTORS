@@ -27,5 +27,4 @@ private
 def mentor_params
   params.require(:mentor).permit(:title, :description, :price, :speciality)
 end
-
 end
