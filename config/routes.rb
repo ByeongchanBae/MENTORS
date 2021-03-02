@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
-  resources :mentors, only: [:index, :new, :create]
+  resources :mentors
 end
