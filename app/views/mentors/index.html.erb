@@ -12,14 +12,14 @@
   </thead>
 
   <tbody>
-  <%= @mentors.each do |mentor| %>
-      <h2><%= @mentor.title %></h2>
-      <h3><%= @mentor.speciality %></h3>
-      <p><%= @mentor.description %></p>
-      <li><%= @mentor.price %></li>
-      <li><%= link_to 'Show', mentor %></li>
-      <li><%= link_to 'Edit', edit_mentor_path(mentor) %></li>
-      <li><%= link_to 'Destory', mentor, method: :delete, data: { confirm: 'Are you sure you want to delete your profile?' } %></li>
+  <% @mentors.each do |mentor| %>
+    <tr>
+      <td><%= mentor.title %></td>
+      <td><%= mentor.speciality %></td>
+      <td><%= mentor.description %></td>
+      <td><%= mentor.price %></td>
+      <td><%= link_to 'Show', mentor %></td>
+      <td><%= link_to 'Edit', edit_mentor_path(mentor) %></td>
     <%end%>
   </tbody>
 </table>
