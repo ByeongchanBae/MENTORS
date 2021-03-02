@@ -1,7 +1,6 @@
-  <%= simple_form_for @booking do |f| %>
+  <%= simple_form_for [@mentor, @booking] do |f| %>
   <%= f.input :start_date %>
   <%= f.input :end_date%>
-  <%= f.input :price%>
   <%= f.button :submit, class: "btn btn-success" %>
 <% end %>
 

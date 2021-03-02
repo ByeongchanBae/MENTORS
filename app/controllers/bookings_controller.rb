@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @mentor = Mentor.find(params[:mentor_id])
   end
 
   def create
