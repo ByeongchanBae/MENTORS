@@ -1,6 +1,29 @@
 <h1>Mentors</h1>
 
-<%= @mentors.each do |mentor| %>
-    <li><%= @mentor.title %></li>
-<%end%>
+<table>
+  <thead>
+    <tr>
+      <h2>Title</h2>
+      <h3>Speciality</h3>
+      <p>Description</p>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
+  <tbody>
+  <% @mentors.each do |mentor| %>
+    <tr>
+      <td><%= mentor.title %></td>
+      <td><%= mentor.speciality %></td>
+      <td><%= mentor.description %></td>
+      <td><%= mentor.price %></td>
+      <td><%= link_to 'Show', mentor %></td>
+      <td><%= link_to 'Edit', edit_mentor_path(mentor) %></td>
+    <%end%>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mentor', new_mentor_path %>
