@@ -24,3 +24,23 @@
   </tbody>
 </table>
 
+
+
+<h1>My Mentors Profiles</h1>
+  <% @mentors.each do |mentor|  %>
+    <h3><%= mentor.title %> <%= mentor.speciality %></h3>
+     <%= link_to 'Show', mentor %>
+   </br>
+   </br>
+     <h5>Mentor Booking Requests</h5>
+     <% mentor.bookings.each do |booking| %>
+      <p><%= booking.user.first_name %> <%= booking.user.last_name %>
+        <%= booking.start_date %> until <%= booking.end_date %>
+      </p>
+     <% end %>
+  <% end %>
+
+
+
+
+
