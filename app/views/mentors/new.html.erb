@@ -1,6 +1,9 @@
 <h1>Add New Mentor</h1>
 <br/>
-<%= render 'form', mentor: @mentor %>
-
+<% if current_user == @mentor.user %>
+  <p>You can't book yourself</p>
+<% else %>
+  <%= render 'form', mentor: @mentor %>
+<% end %>
 <br/>
 <%= link_to 'Back', mentors_path, class:"btn btn-dark"  %>
