@@ -39,13 +39,6 @@ def destroy
   redirect_to mentors_path
 end
 
-def current_user
-  Mentor.find_by(id: session[:mentor_id])
-end
-
-def logged_in?
-  !find_mentor.nil?
-end
 
 private
 
