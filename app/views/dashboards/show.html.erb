@@ -4,8 +4,13 @@
   <tbody>
   <% @bookings.each do |booking| %>
     <tr>
-      <td> Start Date <%= booking.start_date %></td>
-      <td> End Date <%= booking.end_date %></td>
+      <td>
+        <% if booking.mentor.avatar.attached? %>
+          <%= cl_image_tag booking.mentor.avatar.key, height: 150, width: 150, crop: :fill %>
+        <% end %>
+      </td>
+      <td><%= booking.start_date %></td>
+      <td><%= booking.end_date %></td>
       <td>$<%= booking.price %></td>
       <td><%= link_to 'Show', booking %></td>
       <% if booking.user == current_user %>

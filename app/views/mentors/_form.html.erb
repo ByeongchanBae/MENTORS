@@ -3,6 +3,8 @@
   <%= f.input :speciality%>
   <%= f.input :description%>
   <%= f.input :price%>
+  <%= f.label "Profile Photo" %><br>
+  <%= f.input :avatar, as: :file %><br><br>
   <%= f.button :submit, class: "btn btn-success" %>
 <% end %>
 
