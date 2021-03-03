@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @mentor = Mentor.find(params[:mentor_id])
+    @booking.price = @mentor.price * @booking.num_of_days
     @booking.mentor = @mentor
     @booking.user = current_user
     if @booking.save
@@ -23,7 +24,6 @@ class BookingsController < ApplicationController
 
   def edit
   end
-
 
   def update
     @booking.update(booking_params)
