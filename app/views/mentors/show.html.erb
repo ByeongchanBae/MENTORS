@@ -1,5 +1,8 @@
 <div class="bg-light">
   <div class="jumbotron">
+    <% if @mentor.avatar.attached? %>
+      <image width="150" height="150" src="<%= (url_for(@mentor.avatar)) %>">
+    <% end %>
     <h1 class="display-4"><%= @mentor.title %></h1>
     <h3><%= @mentor.speciality %></h3>
     <p class="lead"><%= @mentor.description %> | $<%= @mentor.price %> per hour</p>

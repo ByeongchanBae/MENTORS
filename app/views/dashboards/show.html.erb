@@ -13,6 +13,11 @@
   <tbody>
   <% @bookings.each do |booking| %>
     <tr>
+      <td>
+        <% if booking.mentor.avatar.attached? %>
+          <%= cl_image_tag booking.mentor.avatar.key, height: 150, width: 150, crop: :fill %>
+        <% end %>
+      </td>
       <td><%= booking.start_date %></td>
       <td><%= booking.end_date %></td>
       <td>$<%= booking.price %></td>
