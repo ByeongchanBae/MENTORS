@@ -17,7 +17,7 @@
       <td><%= mentor.title %></td>
       <td><%= mentor.speciality %></td>
       <td><%= mentor.description %></td>
-      <td><%= mentor.price %></td>
+      <td>$<%= mentor.price %>/h</td>
       <td><%= link_to 'Show', mentor %></td>
       <% if mentor.user == current_user %>
         <td><%= link_to 'Edit', edit_mentor_path(mentor) %></td>

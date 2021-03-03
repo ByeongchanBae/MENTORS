@@ -15,7 +15,7 @@
     <tr>
       <td><%= booking.start_date %></td>
       <td><%= booking.end_date %></td>
-      <td><%= booking.price %></td>
+      <td>$<%= booking.price %></td>
       <td><%= link_to 'Show', booking %></td>
       <% if booking.user == current_user %>
         <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
