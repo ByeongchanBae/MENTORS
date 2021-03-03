@@ -1,3 +1,5 @@
+ <div class="d-flex flex-column align-items-center">
+  <h1>Select your dates</h1>
   <% if current_user == @mentor.user %>
   <p>You can't book yourself</p>
 <% else %>
@@ -7,6 +9,4 @@
   <%= f.button :submit, class: "btn btn-success" %>
 <% end %>
 <% end %>
-
-
-  <%= link_to 'Back', mentors_path, class:"btn btn-secondary" %>
+</div>
