@@ -1,24 +1,64 @@
 <h1>My Bookings:</h1>
 
-<table>
-  <tbody>
-  <% @bookings.each do |booking| %>
-    <tr>
-      <td>
-        <% if booking.mentor.avatar.attached? %>
-          <%= cl_image_tag booking.mentor.avatar.key, height: 150, width: 150, crop: :fill %>
+
+<div class="main">
+  <div class="heading">
+    <h1>My Bookings:</h1>
+  </div>
+  <div>
+    <section>
+      <ul>
+        <li>
+          <div class ="cards">
+            <% @bookings.each do |booking| %>
+            <div class="card">
+              <div class="image">
+                <% if booking.mentor.avatar.attached? %>
+                  <%= cl_image_tag mentor.avatar.key, height: 200, width: 318, crop: :fill %>
+                <% end %>
+              </div>
+              <div class="card__content">
+                <h3> <%= mentor.title %> : $<%= mentor.price %></h3>
+                <h4> <%= mentor.speciality %></h4>
+                <p> <%= mentor.description %> </p>
+              </div>
+              <div class="card__info">
+                <%= link_to 'View Profile', mentor, class:"btn btn-primary" %>
+                <% if mentor.user == current_user %>
+                <%= link_to 'Edit', edit_mentor_path(mentor), class:"btn btn-warning" %>
+                <% end %>
+              </div>
+            </div>
+            <%end%>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </div>
+</div>
+
+
+  <table>
+    <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td>
+          <% if booking.mentor.avatar.attached? %>
+            <%= cl_image_tag booking.mentor.avatar.key, height: 150, width: 150, crop: :fill %>
+          <% end %>
+        </td>
+        <td><%= booking.start_date %></td>
+        <td><%= booking.end_date %></td>
+        <td>$<%= booking.price %></td>
+        <td><%= link_to 'Show', booking %></td>
+        <% if booking.user == current_user %>
+          <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
         <% end %>
-      </td>
-      <td><%= booking.start_date %></td>
-      <td><%= booking.end_date %></td>
-      <td>$<%= booking.price %></td>
-      <td><%= link_to 'Show', booking %></td>
-      <% if booking.user == current_user %>
-        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
       <% end %>
-    <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+
+
 
 
 
@@ -35,8 +75,5 @@
       </p>
      <% end %>
   <% end %>
-
-
-
 
 
