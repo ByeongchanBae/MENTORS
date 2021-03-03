@@ -1,8 +1,8 @@
 <div class="bg-light">
   <div class="jumbotron">
     <h3 class="display-4"><%= @booking.start_date %> until <%=  @booking.end_date %></h3>
-
     <hr class="my-4">
+    <p>$<%= @booking.price %></p>
   </div>
 </div>
 <% if current_user == @mentor.user  %>
