@@ -6,6 +6,8 @@
     <hr class="my-4">
   </div>
 </div>
+  <% if current_user == @mentor.user %>
   <%= link_to 'Edit', edit_mentor_path(@mentor), class:"btn btn-secondary" %>
+  <% end %>
   <%= link_to 'Delete', @mentor, method: :delete, data: { confirm: 'Are you sure you want to delete your profile?' }, class:"btn btn-danger" %>
   <%= link_to 'Back', mentors_path, class:"btn btn-secondary" %>
