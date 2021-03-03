@@ -2,6 +2,9 @@ class MentorsController < ApplicationController
 before_action :authenticate_user!
 before_action :find_mentor, only: [:show, :edit, :update, :destroy]
 
+helper_method :logged_in?
+helper_method :current_user
+
 def index
   @mentors = Mentor.all
 end
@@ -36,10 +39,9 @@ def destroy
   redirect_to mentors_path
 end
 
+
 private
 
-def correct_user
-end
 
 def find_mentor
   @mentor = Mentor.find(params[:id])
