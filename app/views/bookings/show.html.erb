@@ -1,5 +1,8 @@
 <div class="bg-light">
   <div class="jumbotron">
+    <% if @booking.mentor.avatar.attached? %>
+      <%= cl_image_tag @booking.mentor.avatar.key, height: 150, width: 150, crop: :fill %>
+    <% end %>
     <h3 class="display-4"><%= @booking.start_date %> until <%=  @booking.end_date %></h3>
     <hr class="my-4">
     <p>$<%= @booking.price %></p>

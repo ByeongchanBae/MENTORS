@@ -14,6 +14,11 @@
   <tbody>
   <% @mentors.each do |mentor| %>
     <tr>
+      <td>
+        <% if mentor.avatar.attached? %>
+          <%= cl_image_tag mentor.avatar.key, height: 150, width: 150, crop: :fill %>
+        <% end %>
+      </td>
       <td><%= mentor.title %></td>
       <td><%= mentor.speciality %></td>
       <td><%= mentor.description %></td>

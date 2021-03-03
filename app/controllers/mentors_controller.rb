@@ -14,6 +14,7 @@ end
 
 def new
   @mentor = Mentor.new
+  @mentor.avatar.attach(params[:avatar])
 end
 
 def create
@@ -48,6 +49,6 @@ def find_mentor
 end
 
 def mentor_params
-  params.require(:mentor).permit(:title, :description, :price, :speciality)
+  params.require(:mentor).permit(:avatar, :title, :description, :price, :speciality)
 end
 end
