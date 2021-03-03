@@ -1,44 +1,36 @@
-<h1>My Bookings:</h1>
-
-
 <div class="main">
   <div class="heading">
     <h1>My Bookings:</h1>
   </div>
   <div>
     <section>
-      <ul>
-        <li>
-          <div class ="cards">
-            <% @bookings.each do |booking| %>
-            <div class="card">
-              <div class="image">
-                <% if booking.mentor.avatar.attached? %>
-                  <%= cl_image_tag mentor.avatar.key, height: 200, width: 318, crop: :fill %>
-                <% end %>
-              </div>
-              <div class="card__content">
-                <h3> <%= mentor.title %> : $<%= mentor.price %></h3>
-                <h4> <%= mentor.speciality %></h4>
-                <p> <%= mentor.description %> </p>
-              </div>
-              <div class="card__info">
-                <%= link_to 'View Profile', mentor, class:"btn btn-primary" %>
-                <% if mentor.user == current_user %>
-                <%= link_to 'Edit', edit_mentor_path(mentor), class:"btn btn-warning" %>
-                <% end %>
-              </div>
-            </div>
-            <%end%>
+      <div class ="cards">
+        <% @bookings.each do |booking| %>
+        <div class="card">
+          <div class="image">
+            <% if booking.mentor.avatar.attached? %>
+            <%= cl_image_tag booking.mentor.avatar.key, height: 200, width: 318, crop: :fill %>
+            <% end %>
           </div>
-        </li>
-      </ul>
+          <div class="card__content">
+            <p> <%= booking.start_date %> - <%= booking.end_date %> </p>
+            <p> $<%= booking.price %> </p>
+          </div>
+          <div class="card__info">
+           <%= link_to 'Show', booking, class:"btn btn-primary" %>
+           <% if booking.user == current_user %>
+           <%= link_to 'Edit', edit_booking_path(booking), class:"btn btn-warning" %>
+           <% end %>
+         </div>
+       </div>
+       <%end%>
+     </div>
     </section>
   </div>
 </div>
 
 
-  <table>
+<!--   <table>
     <tbody>
     <% @bookings.each do |booking| %>
       <tr>
@@ -57,7 +49,7 @@
       <% end %>
     </tbody>
   </table>
-
+ -->
 
 
 
