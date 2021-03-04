@@ -1,14 +1,7 @@
-.cards {
-  margin: 0 auto;
-  max-width: 1000px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  font-family: sans-serif;
-}
-
 .card {
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  height: 425px;
 }
 
 .image {
@@ -20,15 +13,11 @@
   font-size: 0.9em;
   padding: 15px;
   background: #fafafa;
+  overflow: hidden;
+  width: 348px;
+  height: 153px;
 }
 
-.card__content > h3:first-of-type {
-  margin-top: 0;
-}
-
-.card__content > p:last-of-type {
-  margin-bottom: 0;
-}
 
 .card__info {
   padding: 15px;

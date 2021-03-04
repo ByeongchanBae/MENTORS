@@ -1,0 +1,24 @@
+.tns-controls {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #1EDD88;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #1BCB7F;
+  color: white;
+}
+
+
+.tns-nav {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+}

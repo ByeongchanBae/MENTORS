@@ -1,0 +1,16 @@
+<div class="card">
+  <% if mentor.avatar.attached? %>
+        <%= cl_image_tag mentor.avatar.key, height: 200, width: 350, crop: :fill %>
+    <% end %>
+  <div class="card__content">
+    <h3> <%= mentor.title %> : $<%= mentor.price %></h3>
+      <h4> <%= mentor.speciality %></h4>
+    <p> <%= mentor.description %> </p>
+  </div>
+  <div class="card__info">
+    <%= link_to 'View Profile', mentor, class:"btn btn-primary" %>
+    <% if mentor.user == current_user %>
+      <%= link_to 'Edit', edit_mentor_path(mentor), class:"btn btn-warning" %>
+    <% end %>
+  </div>
+</div>
