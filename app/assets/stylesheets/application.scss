@@ -2,7 +2,7 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
-@import "config/cards";
+// @import "config/dashboards"
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
@@ -13,3 +13,9 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// utilites
+
+h1, h2, h3, h4, a, p {
+  font-family: 'Poppins', sans-serif;
+}

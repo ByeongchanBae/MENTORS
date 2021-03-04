@@ -1,24 +1,25 @@
-<h1>My Bookings:</h1>
-
-<table>
-  <tbody>
-  <% @bookings.each do |booking| %>
-    <tr>
-      <td>
-        <% if booking.mentor.avatar.attached? %>
-          <%= cl_image_tag booking.mentor.avatar.key, height: 150, width: 150, crop: :fill %>
-        <% end %>
-      </td>
-      <td><%= booking.start_date %></td>
-      <td><%= booking.end_date %></td>
-      <td>$<%= booking.price %></td>
-      <td><%= link_to 'Show', booking %></td>
-      <% if booking.user == current_user %>
-        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-      <% end %>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <h1 class="text-center mb-3">My Bookings:</h1>
+  <div class="carousel-inner">
+    <%= render partial: "shared/booking_card", locals: { booking: @bookings.first, active_class: "active" } %>
+    <% @bookings.each do |booking| %>
+      <%= render partial: "shared/booking_card", locals: { booking: booking, active_class: "" } %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
 
 
@@ -35,8 +36,5 @@
       </p>
      <% end %>
   <% end %>
-
-
-
 
 
