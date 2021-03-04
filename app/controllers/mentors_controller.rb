@@ -17,6 +17,12 @@ def index
 end
 
 def show
+  @markers =
+    [{
+      lat: @mentor.latitude,
+      lng: @mentor.longitude,
+      image_url: "https://s3.tradingview.com/userpics/4044737-aOsd_orig.png"
+    }]
 end
 
 def new
@@ -51,8 +57,7 @@ end
 private
 
  def generate_markers(mentors)
-   mentors.map do |mentor|
-    if mentor.geocoded?
+   mentors.geocoded.map do |mentor|
     {
       lat: mentor.latitude,
       lng: mentor.longitude,
@@ -60,7 +65,6 @@ private
       image_url: "https://s3.tradingview.com/userpics/4044737-aOsd_orig.png"
     }
     end
-    end.compact
   end
 
 
