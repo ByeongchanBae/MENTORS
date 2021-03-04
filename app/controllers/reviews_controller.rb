@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
     def create
-    @mentor = Cocktail.find(params[:mentor_id])
+    @mentor = Mentor.find(params[:mentor_id])
     @review = Review.new(param_reviews)
     @review.mentor = @mentor
     if @review.save

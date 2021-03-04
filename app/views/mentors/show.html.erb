@@ -1,10 +1,10 @@
 
 <div class="container-show">
-<div class = "card-wrapper">
-      <div class = "card-show">
-        <!-- card left -->
-        <% if @mentor.avatar.attached? %>
-        <image width="500" height="500" src="<%= (url_for(@mentor.avatar)) %>">
+  <div class = "card-wrapper">
+    <div class = "card-show">
+      <!-- card left -->
+      <% if @mentor.avatar.attached? %>
+      <image width="500" height="500" src="<%= (url_for(@mentor.avatar)) %>">
         <% end %>
         <!-- card right -->
         <div class = "product-content">
@@ -16,7 +16,7 @@
             <i class = "fas fa-star-half-alt"></i>
             <span>3.5(59)</span>
           </div>
-           <div class="product-price">
+          <div class="product-price">
             <h4>$<%= @mentor.price %> per day</h4>
           </div>
           <div class="product-detail">
@@ -26,12 +26,11 @@
 
           <div class = "purchase-info">
             <%= link_to 'Book',  new_mentor_booking_path(@mentor), class:"btn btn-secondary" %>
-              <% if current_user == @mentor.user %>
-                <%= link_to 'Edit', edit_mentor_path(@mentor), class:"btn btn-secondary" %>
-                <%= link_to 'Delete', @mentor, method: :delete, data: { confirm: 'Are you sure you want to delete your profile?' }, class:"btn btn-danger" %>
+            <% if current_user == @mentor.user %>
+            <%= link_to 'Edit', edit_mentor_path(@mentor), class:"btn btn-secondary" %>
+            <%= link_to 'Delete', @mentor, method: :delete, data: { confirm: 'Are you sure you want to delete your profile?' }, class:"btn btn-danger" %>
             <% end %>
           </div>
-
           <div class = "social-links">
             <p>Follow <%= @mentor.title %> on</p>
             <a href = "#">
@@ -48,55 +47,36 @@
             </a>
             <a href = "#">
              <i class="fab fa-linkedin"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
-
-<div class="bottom-container">
+           </a>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ <div class="bottom-container">
   <div id="map"
-     style="width: 500px; height: 500px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  style="width: 500px; height: 500px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 <div class="right">
-<h1>Reviews</h1>
+  <h1>Reviews</h1>
   <% if current_user == @mentor.user %>
   <% else %>
-    <%= render 'reviews/new' %>
+  <%= render 'reviews/new' %>
   <%end%>
-<div class="notification">
-  <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
-  <div class="notification-content">
-    <p><small>2nd March</small></p>
-    <p>Angus really helped me get the hang of<strong> Javascript </strong>Thanks champ!</p>
-  </div>
-
-  <div class="notification-actions">
-    <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-    <a href="#">Delete <i class="far fa-trash-alt"></i></a>
-  </div>
-</div>
-
-<div class="notification">
-  <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
-  <div class="notification-content">
-    <p><small>5th March</small></p>
-    <p>Angus was the best mentor I could have had... <strong>The Best.</strong></p>
-  </div>
-
-  <div class="notification-actions">
-    <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-    <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+  <div class="notification">
+    <% @mentor.reviews.each do |review| %>
+    <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+    <div class="notification-content">
+      <p><small>5th March</small></p>
+      <p><%= review.content %></p>
+      <%end%>
+    </div>
   </div>
 </div>
 </div>
 </div>
-
-
-
 <div class="footer">
   <div class="footer-links">
     <a href="#"><i class="fab fa-github"></i></a>
