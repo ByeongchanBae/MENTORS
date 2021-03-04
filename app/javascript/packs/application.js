@@ -26,9 +26,9 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
-import { initCarousel } from '../plugins/initCarousel';
+// import { initCarousel } from '../plugins/initCarousel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  initCarousel();
+  // initCarousel();
 });
