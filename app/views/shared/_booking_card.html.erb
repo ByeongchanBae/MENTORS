@@ -1,0 +1,12 @@
+<div class="carousel-item <%= active_class %>">
+  <div class="card">
+    <% if booking.mentor.avatar.attached? %>
+    <%= cl_image_tag booking.mentor.avatar.key, height: 200, width: 318, crop: :fill %>
+    <% end %>
+    <div class="card-content">
+      <h4 class="card-title"> <%= booking.mentor.title %> </h4>
+      <p class="card-text"> <%= booking.start_date %> - <%= booking.end_date %> </p>
+      <p class="card-text"> $<%= booking.price %> </p>
+    </div>
+  </div>
+</div>
