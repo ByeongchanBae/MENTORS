@@ -13,9 +13,8 @@
             <i class = "fas fa-star"></i>
             <i class = "fas fa-star"></i>
             <i class = "fas fa-star"></i>
-            <i class = "fas fa-star"></i>
             <i class = "fas fa-star-half-alt"></i>
-            <span>4.7(21)</span>
+            <span>3.5(59)</span>
           </div>
            <div class="product-price">
             <h4>$<%= @mentor.price %> per day</h4>
@@ -34,7 +33,7 @@
           </div>
 
           <div class = "social-links">
-            <p>Share At: </p>
+            <p>Follow <%= @mentor.title %> on</p>
             <a href = "#">
               <i class = "fab fa-facebook-f"></i>
             </a>
@@ -45,16 +44,17 @@
               <i class = "fab fa-instagram"></i>
             </a>
             <a href = "#">
-              <i class = "fab fa-whatsapp"></i>
+              <i class="fab fa-github"></i>
             </a>
             <a href = "#">
-              <i class = "fab fa-pinterest"></i>
+             <i class="fab fa-linkedin"></i>
             </a>
           </div>
         </div>
       </div>
     </div>
 </div>
+
 <div class="bottom-container">
   <div id="map"
      style="width: 500px; height: 500px;"
@@ -63,11 +63,15 @@
 </div>
 <div class="right">
 <h1>Reviews</h1>
+  <% if current_user == @mentor.user %>
+  <% else %>
+    <%= render 'reviews/new' %>
+  <%end%>
 <div class="notification">
   <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
   <div class="notification-content">
     <p><small>2nd March</small></p>
-    <p>Angus really helped me get the hang of<strong>Javascript</strong>Thanks champ!</p>
+    <p>Angus really helped me get the hang of<strong> Javascript </strong>Thanks champ!</p>
   </div>
 
   <div class="notification-actions">
@@ -80,7 +84,7 @@
   <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
   <div class="notification-content">
     <p><small>5th March</small></p>
-    <p>Angus was the best mentor I could have... <strong>The Best.</strong></p>
+    <p>Angus was the best mentor I could have had... <strong>The Best.</strong></p>
   </div>
 
   <div class="notification-actions">
@@ -102,7 +106,7 @@
     <a href="#"><i class="fab fa-linkedin"></i></a>
   </div>
   <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+    Hope This Helped <i class="fas fa-heart"></i> From Mentors
   </div>
 </div>
 
