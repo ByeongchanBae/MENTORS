@@ -3,7 +3,7 @@ import {tns} from 'tiny-slider/src/tiny-slider';
 const initCarousel = () => {
   const slider = tns({
     "container": ".my-slider",
-    "items": 3,
+    "items": 4,
     "edgePadding": 40,
     "lazyload": true,
     "lazyloadSelector": ".tns-lazy",
