@@ -2,11 +2,17 @@ class MentorsController < ApplicationController
 before_action :authenticate_user!
 before_action :find_mentor, only: [:show, :edit, :update, :destroy]
 
-helper_method :logged_in?
-helper_method :current_user
 
 def index
-  @mentors = Mentor.all
+  if params[:query].present?
+    sql_query = " \
+      mentors.title ILIKE :query \
+      OR mentors.speciality ILIKE :query \
+    "
+    @mentors = Mentor.where(sql_query, query: "%#{params[:query]}%")
+   else
+    @mentors = Mentor.all
+  end
 end
 
 def show
