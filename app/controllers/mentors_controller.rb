@@ -2,11 +2,14 @@ class MentorsController < ApplicationController
 before_action :authenticate_user!
 before_action :find_mentor, only: [:show, :edit, :update, :destroy]
 
-helper_method :logged_in?
-helper_method :current_user
-
 def index
   @mentors = Mentor.all
+  @markers = @mentors.geocoded.map do |mentor|
+    {
+      lat: mentor.latitude,
+      lng: mentor.longitude
+    }
+  end
 end
 
 def show
