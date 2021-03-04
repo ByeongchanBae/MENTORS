@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Show of Mentors</title>
+  <link rel="stylesheet" href="assets/stylesheets/pages/_show.scss">
+</head>
+<body>
 <div class="bg-light">
   <div class="jumbotron">
     <% if @mentor.avatar.attached? %>
@@ -16,3 +23,6 @@
   <%= link_to 'Edit', edit_mentor_path(@mentor), class:"btn btn-secondary" %>
   <%= link_to 'Delete', @mentor, method: :delete, data: { confirm: 'Are you sure you want to delete your profile?' }, class:"btn btn-danger" %>
   <% end %>
+</body>
+</html>
+
