@@ -7,8 +7,9 @@ def index
   @markers = @mentors.geocoded.map do |mentor|
     {
       lat: mentor.latitude,
-      lng: mentor.longitude
-    }
+      lng: mentor.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { mentor: mentor })
+      }
   end
 end
 
