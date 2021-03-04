@@ -34,3 +34,24 @@ submit {
 div#map.mapboxgl-canvas {
   margin: 30px 40px;
 }
+
+// canvas.mapboxgl-canvas {
+//   margin-top: 50px;
+// }
+.mt-4, .my-4 {
+  margin-top: 1.5rem !important;
+}
+
+.col-md-6 {
+    -webkit-box-flex: 0;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.row {
+  margin: 0 0 150px 0;
+}
+
+.shadow-lg {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
