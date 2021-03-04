@@ -1,0 +1,13 @@
+<div class="booking-request">
+  <div class="request-content">
+    <p>Requested Mentee: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+    <p class="card-text">Requested Date: <%= booking.start_date %> - <%= booking.end_date %> </p>
+    <p class="card-text"> $<%= booking.price %> </p>
+  </div>
+  <div class="request_action">
+    <%= link_to 'Show', booking, class:"btn btn-primary" %>
+    <% if booking.user == current_user %>
+      <%= link_to 'Edit', edit_booking_path(booking), class:"btn btn-secondary" %>
+    <% end %>
+  </div>
+</div>
