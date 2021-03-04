@@ -33,7 +33,15 @@ import { initFlatpickr } from "../plugins/flatpickr";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
     initMapbox();
+});
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your functions here, e.g:
     initCarousel();
+});
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your functions here, e.g:
     initFlatpickr();
 });
 
