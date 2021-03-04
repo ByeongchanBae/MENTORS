@@ -1,28 +1,13 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <h1 class="text-center mb-3">My Bookings:</h1>
-  <div class="carousel-inner">
-    <%= render partial: "shared/booking_card", locals: { booking: @bookings.first, active_class: "active" } %>
-    <% @bookings.each do |booking| %>
-      <%= render partial: "shared/booking_card", locals: { booking: booking, active_class: "" } %>
-    <% end %>
+<div class="my-slider">
+  <% @bookings.each do |booking| %>
+  <div>
+    <%= render partial: "shared/booking_card", locals: { booking: booking } %>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+  <% end %>
 </div>
 
 
-
+<!--
 <h1>My Mentors Profiles</h1>
   <% @mentors.each do |mentor|  %>
     <h3><%= mentor.title %> <%= mentor.speciality %></h3>
@@ -37,4 +22,4 @@
      <% end %>
   <% end %>
 
-
+ -->

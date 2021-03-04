@@ -25,12 +25,14 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
+import { initCarousel } from '../plugins/init_carousel';
 // Internal imports, e.g:
 // import { initCarousel } from '../plugins/initCarousel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
     initMapbox();
+    initCarousel();
 });
 
 
