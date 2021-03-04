@@ -3,13 +3,28 @@ before_action :authenticate_user!
 before_action :find_mentor, only: [:show, :edit, :update, :destroy]
 
 def index
-  @mentors = Mentor.all
-  @markers = @mentors.geocoded.map do |mentor|
+  if params[:query].present?
+    sql_query = " \
+      mentors.title ILIKE :query \
+      OR mentors.speciality ILIKE :query \
+    "
+    @mentors = Mentor.where(sql_query, query: "%#{params[:query]}%")
+    @markers = @mentors.geocoded.map do |mentor|
     {
       lat: mentor.latitude,
       lng: mentor.longitude,
       infoWindow: render_to_string(partial: "info_window", locals: { mentor: mentor })
       }
+    end
+  else
+    @mentors = Mentor.all
+    @markers = @mentors.geocoded.map do |mentor|
+    {
+      lat: mentor.latitude,
+      lng: mentor.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { mentor: mentor })
+    }
+  end
   end
 end
 
