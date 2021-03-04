@@ -10,7 +10,7 @@
   <div class="card__info">
     <%= link_to 'View Profile', mentor, class:"btn btn-primary" %>
     <% if mentor.user == current_user %>
-      <%= link_to 'Edit', edit_mentor_path(mentor), class:"btn btn-warning" %>
+      <%= link_to 'Edit', edit_mentor_path(mentor), class:"btn btn-secondary" %>
     <% end %>
   </div>
 </div>
