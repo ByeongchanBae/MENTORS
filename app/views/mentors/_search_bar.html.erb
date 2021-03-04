@@ -1,8 +1,10 @@
 <%= form_tag mentors_path, method: :get do %>
-  <%= text_field_tag :query,
+  <div class="d-flex">
+    <%= text_field_tag :query,
     params[:query],
     class: "form-control",
     placeholder: "Find a mentor"
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
+  </div>
 <% end %>

@@ -1,8 +1,9 @@
 <div class="d-flex flex-column align-items-center">
-  <%= render 'mentors/search_bar' %>
-<h1>Mentors</h1>
-</div>
 
+<h1>View Mentors</h1>
+<%= render 'mentors/search_bar' %>
+</div>
+<br>
 <div class ="cards">
   <% @mentors.each do |mentor| %>
   <div class="card">
