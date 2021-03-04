@@ -4,31 +4,36 @@
 <%= render 'mentors/search_bar' %>
 </div>
 <br>
-<div class ="cards">
-  <% @mentors.each do |mentor| %>
-  <div class="card">
-    <div class="image">
-    <% if mentor.avatar.attached? %>
-        <%= cl_image_tag mentor.avatar.key, height: 200, width: 318, crop: :fill %>
-    <% end %>
-    </div>
-  <div class="card__content">
-      <h3> <%= mentor.title %> : $<%= mentor.price %></h3>
-      <h4> <%= mentor.speciality %></h4>
-      <p> <%= mentor.description %> </p>
-  </div>
-    <div class="card__info">
-      <%= link_to 'View Profile', mentor, class:"btn btn-primary" %>
-      <% if mentor.user == current_user %>
-        <%= link_to 'Edit', edit_mentor_path(mentor), class:"btn btn-warning" %>
+
+<div class="row">
+  <div class="col-md-6 mt-4">
+    <div class="my-slider shadow-lg">
+      <% @mentors.each do |mentor| %>
+      <div>
+        <%= render partial: "shared/mentor_card", locals: { mentor: mentor } %>
+      </div>
       <% end %>
     </div>
   </div>
-  <%end%>
+
+  <div class="col-md-6 mt-4">
+    <div id="map"
+         style="width: 715.5px; height: 435px;"
+         data-markers="<%= @markers.to_json %>"
+         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
 </div>
 
 
-<div id="map"
-     style="width: 300px; height: 300px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
+</div>

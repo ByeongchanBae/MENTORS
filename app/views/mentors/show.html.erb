@@ -1,24 +1,116 @@
-<div class="bg-light">
-  <div class="jumbotron">
-    <% if @mentor.avatar.attached? %>
-      <image width="150" height="150" src="<%= (url_for(@mentor.avatar)) %>">
-    <% end %>
-    <h1 class="display-4"><%= @mentor.title %></h1>
-    <h3><%= @mentor.speciality %></h3>
-    <p class="lead"><%= @mentor.description %> | $<%= @mentor.price %> per hour</p>
-    <hr class="my-4">
+
+<div class="container-show">
+<div class = "card-wrapper">
+      <div class = "card-show">
+        <!-- card left -->
+        <% if @mentor.avatar.attached? %>
+        <image width="500" height="500" src="<%= (url_for(@mentor.avatar)) %>">
+        <% end %>
+        <!-- card right -->
+        <div class = "product-content">
+          <h2 class = "product-title"> <%= @mentor.title %> </h2>
+          <div class = "product-rating">
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star"></i>
+            <i class = "fas fa-star-half-alt"></i>
+            <span>4.7(21)</span>
+          </div>
+           <div class="product-price">
+            <h4>$<%= @mentor.price %> per day</h4>
+          </div>
+          <div class="product-detail">
+            <h4><%= @mentor.speciality %></h4>
+            <p><%= @mentor.description  %></p>
+          </div>
+
+          <div class = "purchase-info">
+            <%= link_to 'Book',  new_mentor_booking_path(@mentor), class:"btn btn-secondary" %>
+              <% if current_user == @mentor.user %>
+                <%= link_to 'Edit', edit_mentor_path(@mentor), class:"btn btn-secondary" %>
+                <%= link_to 'Delete', @mentor, method: :delete, data: { confirm: 'Are you sure you want to delete your profile?' }, class:"btn btn-danger" %>
+            <% end %>
+          </div>
+
+          <div class = "social-links">
+            <p>Share At: </p>
+            <a href = "#">
+              <i class = "fab fa-facebook-f"></i>
+            </a>
+            <a href = "#">
+              <i class = "fab fa-twitter"></i>
+            </a>
+            <a href = "#">
+              <i class = "fab fa-instagram"></i>
+            </a>
+            <a href = "#">
+              <i class = "fab fa-whatsapp"></i>
+            </a>
+            <a href = "#">
+              <i class = "fab fa-pinterest"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="bottom-container">
+  <div id="map"
+     style="width: 500px; height: 500px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+<div class="right">
+<h1>Reviews</h1>
+<div class="notification">
+  <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+  <div class="notification-content">
+    <p><small>2nd March</small></p>
+    <p>Angus really helped me get the hang of<strong>Javascript</strong>Thanks champ!</p>
+  </div>
+
+  <div class="notification-actions">
+    <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+    <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+  </div>
+</div>
+
+<div class="notification">
+  <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+  <div class="notification-content">
+    <p><small>5th March</small></p>
+    <p>Angus was the best mentor I could have... <strong>The Best.</strong></p>
+  </div>
+
+  <div class="notification-actions">
+    <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+    <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
   </div>
 </div>
 
 <div id="map"
-     style="width: 300px; height: 300px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+style="width: 300px; height: 300px;"
+data-markers="<%= @markers.to_json %>"
+data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
 
 
-  <%= link_to 'Book',  new_mentor_booking_path(@mentor), class:"btn btn-secondary" %>
-  <% if current_user == @mentor.user %>
-  <%= link_to 'Edit', edit_mentor_path(@mentor), class:"btn btn-secondary" %>
-  <%= link_to 'Delete', @mentor, method: :delete, data: { confirm: 'Are you sure you want to delete your profile?' }, class:"btn btn-danger" %>
-  <% end %>

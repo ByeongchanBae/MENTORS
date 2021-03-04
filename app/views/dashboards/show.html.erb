@@ -1,25 +1,32 @@
-<div class="my-slider">
-  <% @bookings.each do |booking| %>
-  <div>
-    <%= render partial: "shared/booking_card", locals: { booking: booking } %>
+<div class="d-flex flex-column align-items-center">
+ <h3>My Bookings:</h3>
+  <div class="container">
+    <div class="my-slider">
+      <% @bookings.each do |booking| %>
+      <div>
+        <%= render partial: "shared/booking_card", locals: { booking: booking } %>
+      </div>
+      <% end %>
+    </div>
   </div>
-  <% end %>
-</div>
 
 
-<!--
-<h1>My Mentors Profiles</h1>
-  <% @mentors.each do |mentor|  %>
-    <h3><%= mentor.title %> <%= mentor.speciality %></h3>
-     <%= link_to 'Show', mentor %>
-   </br>
-   </br>
-     <h5>Mentor Booking Requests</h5>
+  <div class="mentor-profile py-3">
+    <h1>My Mentor Posts</h1>
+    <% @mentors.each do |mentor|  %>
+    <div>
+      <%= render partial: "shared/mentor_card", locals: { mentor: mentor } %>
+    </div>
+  </br>
+  </br>
+
+  <h3>Your Booking Requests:</h3>
+  <div class="mentor-requests">
+
      <% mentor.bookings.each do |booking| %>
-      <p><%= booking.user.first_name %> <%= booking.user.last_name %>
-        <%= booking.start_date %> until <%= booking.end_date %>
-      </p>
-     <% end %>
+      <%= render partial: "shared/mentor_request_card", locals: { booking: booking } %>
+      <% end %>
   <% end %>
-
- -->
+  </div>
+  </div>
+</div>
