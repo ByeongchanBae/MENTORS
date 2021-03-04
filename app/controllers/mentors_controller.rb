@@ -9,22 +9,10 @@ def index
       OR mentors.speciality ILIKE :query \
     "
     @mentors = Mentor.where(sql_query, query: "%#{params[:query]}%")
-    @markers = @mentors.geocoded.map do |mentor|
-    {
-      lat: mentor.latitude,
-      lng: mentor.longitude,
-      infoWindow: render_to_string(partial: "info_window", locals: { mentor: mentor })
-      }
-    end
+    @markers = generate_markers(@mentors)
   else
     @mentors = Mentor.all
-    @markers = @mentors.geocoded.map do |mentor|
-    {
-      lat: mentor.latitude,
-      lng: mentor.longitude,
-      infoWindow: render_to_string(partial: "info_window", locals: { mentor: mentor })
-    }
-  end
+    @markers = generate_markers(@mentors)
   end
 end
 
@@ -62,12 +50,25 @@ end
 
 private
 
+ def generate_markers(mentors)
+   mentors.map do |mentor|
+    if mentor.geocoded?
+    {
+      lat: mentor.latitude,
+      lng: mentor.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { mentor: mentor }),
+      image_url: "https://s3.tradingview.com/userpics/4044737-aOsd_orig.png"
+    }
+    end
+    end.compact
+  end
+
 
 def find_mentor
   @mentor = Mentor.find(params[:id])
 end
 
 def mentor_params
-  params.require(:mentor).permit(:avatar, :title, :description, :price, :speciality)
+  params.require(:mentor).permit(:avatar, :title, :description, :price, :speciality, :address)
 end
 end
