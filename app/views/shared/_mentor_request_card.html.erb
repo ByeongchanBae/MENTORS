@@ -10,6 +10,6 @@
     <p class="card-text">End Date: <%= booking.end_date %></p>
     <p class="card-text">Price $<%= booking.price %> </p>
      <%= link_to 'Confirm', edit_booking_path(booking), class:"btn-link-naked pr-3" %>
-     <%= link_to 'Cancel', booking_path(booking), method: :delete, data: { confirm: 'Are you sure you want to cancel your booking?' }, class:"btn-link-naked" %>
+     <%= link_to 'Reject', booking_path(booking), method: :delete, data: { confirm: 'Are you sure you want to reject this booking?' }, class:"btn-link-naked" %>
   </div>
 </div>
