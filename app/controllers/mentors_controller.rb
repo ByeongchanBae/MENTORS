@@ -23,6 +23,8 @@ def show
       lng: @mentor.longitude,
       image_url: "https://s3.tradingview.com/userpics/4044737-aOsd_orig.png"
     }]
+  @review = Review.new
+  @booking = Booking.new
 end
 
 def new

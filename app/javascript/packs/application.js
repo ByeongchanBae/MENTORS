@@ -21,18 +21,28 @@ require("channels")
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
-
 // External imports
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initCarousel } from '../plugins/init_carousel';
+import { initFlatpickr } from "../plugins/flatpickr";
+
 // Internal imports, e.g:
 // import { initCarousel } from '../plugins/initCarousel';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
     initMapbox();
+});
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your functions here, e.g:
     initCarousel();
+});
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your functions here, e.g:
+    initFlatpickr();
 });
 
 

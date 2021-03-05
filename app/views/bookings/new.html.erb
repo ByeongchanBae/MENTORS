@@ -3,10 +3,6 @@
   <% if current_user == @mentor.user %>
   <p>You can't book yourself</p>
 <% else %>
-  <%= simple_form_for [@mentor, @booking] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date%>
-  <%= f.button :submit, class: "btn btn-success" %>
-<% end %>
+ <%= render 'form' %>
 <% end %>
 </div>
