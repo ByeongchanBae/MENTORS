@@ -80,7 +80,7 @@
               <h1 class="d-flex flex-column align-items-center">Book Now</h1>
 
                <% if current_user == @mentor.user %>
-                <p>You can't book yourself</p>
+                <p class="d-flex flex-column align-items-center">You can't book yourself</p>
                <% else %>
                 <%= simple_form_for [@mentor, @booking] do |f| %>
                 <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
