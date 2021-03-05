@@ -9,9 +9,9 @@
       <p class="card-text my-2"> <%= mentor.speciality %> </p>
       <p class="card-text my-2"> <%= mentor.description %> </p>
       <div class="card__info">
-        <%= link_to 'View Profile', mentor, class:"btn btn-primary" %>
+        <%= link_to 'View Profile', mentor, class:"btn btn-link-naked" %>
         <% if mentor.user == current_user %>
-        <%= link_to 'Edit', edit_mentor_path(mentor), class:"btn btn-secondary" %>
+        <%= link_to 'Edit', edit_mentor_path(mentor), class:"btn btn-link-naked" %>
         <% end %>
       </div>
     </div>

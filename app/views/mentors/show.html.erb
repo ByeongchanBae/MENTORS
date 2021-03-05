@@ -18,7 +18,7 @@
           <!-- mentor header div -->
           <div class="mentor-header">
             <h2 class = "product-title"> <%= @mentor.title %> </h2>
-            <h4><%= @mentor.speciality %>    $<%= @mentor.price %> per day</h4>
+            <h4 class="mt-2"><%= @mentor.speciality %>    $<%= @mentor.price %> per day</h4>
             <!-- mentor header div end -->
           </div>
           <!-- d-flex flex-row div end below -->
@@ -27,15 +27,6 @@
         <div>
           <p class="mentor-detail"><%= @mentor.description %></p>
           <!-- mentor detail end div -->
-        </div>
-        <!-- map -->
-        <div id="map-show">
-          <div id="map"
-            style="width: 500px; height: 500px;"
-            data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
-          <!-- map div end -->
         </div>
         <!-- reviews container -->
         <div class="review-container">
@@ -87,14 +78,26 @@
           <div class="container">
             <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
               <h1 class="d-flex flex-column align-items-center">Book Now</h1>
-              <%= simple_form_for [@mentor, @booking] do |f| %>
-              <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-              <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-              <%= f.button :submit, "Check out", class: "btn btn-primary" %>
+               <% if current_user == @mentor.user %>
+                <p>You can't book yourself</p>
+               <% else %>
+                <%= simple_form_for [@mentor, @booking] do |f| %>
+                <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+                <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+                <%= f.button :submit, "Check out", class: "btn btn-primary" %>
+                <% end %>
               <% end %>
             </div>
           </div>
           <!-- div id booking end below -->
+        </div>
+         <div id="map-show">
+          <div id="map"
+            style="width: 500px; height: 500px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+          <!-- map div end -->
         </div>
         <!-- second col div end below -->
     </div>
