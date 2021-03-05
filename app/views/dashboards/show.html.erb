@@ -19,8 +19,8 @@
           <%= render partial: "shared/mentor_card", locals: { mentor: mentor } %>
         </div>
         <div>
-          <h3>Your Booking Requests:</h3>
           <div class="mentor-requests">
+            <h3 class="ml-4">Your Booking Requests:</h3>
            <% mentor.bookings.each do |booking| %>
             <%= render partial: "shared/mentor_request_card", locals: { booking: booking } %>
             <% end %>

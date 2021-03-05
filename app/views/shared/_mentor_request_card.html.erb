@@ -6,13 +6,10 @@
     </div>
   <div class="request-content">
     <p>Requested Mentee: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
-    <p class="card-text">Requested Date: <%= booking.start_date %> - <%= booking.end_date %> </p>
-    <p class="card-text"> $<%= booking.price %> </p>
-  </div>
-  <div class="request_action">
-    <%= link_to 'Show', booking, class:"btn btn-primary" %>
-    <% if booking.user == current_user %>
-      <%= link_to 'Edit', edit_booking_path(booking), class:"btn btn-secondary" %>
-    <% end %>
+    <p class="card-text">Start Date: <%= booking.start_date %></p>
+    <p class="card-text">End Date: <%= booking.end_date %></p>
+    <p class="card-text">Price $<%= booking.price %> </p>
+     <%= link_to 'Confirm', edit_booking_path(booking), class:"btn-link-naked pr-3" %>
+     <%= link_to 'Reject', booking_path(booking), method: :delete, data: { confirm: 'Are you sure you want to reject this booking?' }, class:"btn-link-naked" %>
   </div>
 </div>
