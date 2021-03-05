@@ -1,16 +1,17 @@
-<div class="card">
+
+<div class="card-trip">
   <% if booking.mentor.avatar.attached? %>
     <%= cl_image_tag booking.mentor.avatar.key, height: 200, width: 350, crop: :fill %>
   <% end %>
-  <div class="card__content">
-    <h4 class="card-title"> Mentor: <%= booking.mentor.title %> </h4>
-    <p class="card-text"> <%= booking.start_date %> - <%= booking.end_date %> </p>
-    <p class="card-text"> $<%= booking.price %> </p>
-  </div>
-  <div class="card__info">
-    <%= link_to 'Show', booking, class:"btn btn-primary" %>
-    <% if booking.user == current_user %>
-      <%= link_to 'Edit', edit_booking_path(booking), class:"btn btn-secondary" %>
-    <% end %>
+  <div class="card-trip-infos">
+    <div>
+      <h2>Mentor: <%= booking.mentor.title %> </h2>
+      <p class="card-text my-2"> <%= booking.start_date %> - <%= booking.end_date %> </p>
+      <%= link_to 'Show', booking, class:"btn btn-primary" %>
+      <% if booking.user == current_user %>
+        <%= link_to 'Edit', edit_booking_path(booking), class:"btn btn-secondary" %>
+      <% end %>
+    </div>
+    <h2 class="card-trip-pricing"> $<%= booking.price %> </h2>
   </div>
 </div>

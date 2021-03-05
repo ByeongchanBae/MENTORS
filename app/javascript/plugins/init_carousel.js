@@ -10,6 +10,7 @@ const initCarousel = () => {
     "swipeAngle": false,
     "speed": 400,
     "mouseDrag": true,
+    "gutter": 20
   });
 };
 
