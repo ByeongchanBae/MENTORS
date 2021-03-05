@@ -22,6 +22,13 @@ user_list = [{
 }]
 
 User.create!(user_list)
+file = URI.open('https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')
+user = User.first
+user.avatar.attach(io: file, filename: 'user.png', content_type: 'image/png')
+
+file = URI.open('https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')
+user = User.last
+user.avatar.attach(io: file, filename: 'user2.png', content_type: 'image/png')
 
 puts "Created #{User.count} users!"
 

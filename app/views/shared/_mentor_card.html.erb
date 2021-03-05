@@ -1,16 +1,20 @@
-<div class="card">
+
+<div class="card-trip">
   <% if mentor.avatar.attached? %>
-        <%= cl_image_tag mentor.avatar.key, height: 200, width: 350, crop: :fill %>
-    <% end %>
-  <div class="card__content">
-    <h3> <%= mentor.title %> : $<%= mentor.price %></h3>
-      <h4> <%= mentor.speciality %></h4>
-    <p> <%= mentor.description %> </p>
-  </div>
-  <div class="card__info">
-    <%= link_to 'View Profile', mentor, class:"btn btn-primary" %>
-    <% if mentor.user == current_user %>
-      <%= link_to 'Edit', edit_mentor_path(mentor), class:"btn btn-secondary" %>
-    <% end %>
+  <%= cl_image_tag mentor.avatar.key, height: 200, width: 350, crop: :fill %>
+  <% end %>
+  <div class="card-trip-infos">
+    <div>
+      <h2>Mentor: <%= mentor.title %> </h2>
+      <p class="card-text my-2"> <%= mentor.speciality %> </p>
+      <p class="card-text my-2"> <%= mentor.description %> </p>
+      <div class="card__info">
+        <%= link_to 'View Profile', mentor, class:"btn btn-primary" %>
+        <% if mentor.user == current_user %>
+        <%= link_to 'Edit', edit_mentor_path(mentor), class:"btn btn-secondary" %>
+        <% end %>
+      </div>
+    </div>
+    <h2 class="card-trip-pricing"> $<%= mentor.price %> </h2>
   </div>
 </div>
