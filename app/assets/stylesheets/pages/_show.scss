@@ -12,10 +12,6 @@ body{
     background-color: rgb(280, 280, 280)
 }
 
-.btn-5{
-  width: 100px;
-}
-
 .form-wrapper {
   border-style: solid;
   border-color: #E0E0E0;
@@ -32,6 +28,9 @@ body{
 
 .avatar-large {
   margin-top: 10px;
+}
+.btn {
+  background-color: #1989E6;
 }
 
 .product-content{
@@ -142,3 +141,14 @@ body{
   margin: 50px 0;
 }
 
+.btn-availabilty {
+  width: 100%;
+  background: #E51E56;
+  border: 1px solid #E51E56;
+}
+
+.btn-availabilty:hover {
+  background-color: #dc2055;;
+  background: #dc2055;
+  border-radius: 3px;
+}
