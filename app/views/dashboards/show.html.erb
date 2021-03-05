@@ -1,4 +1,4 @@
-<div class="d-flex flex-column align-items-center">
+
  <h3>My Bookings:</h3>
   <div class="container">
     <div class="my-slider">
@@ -14,19 +14,18 @@
   <div class="mentor-profile py-3">
     <h1>My Mentor Posts</h1>
     <% @mentors.each do |mentor|  %>
-    <div>
-      <%= render partial: "shared/mentor_card", locals: { mentor: mentor } %>
-    </div>
-  </br>
-  </br>
-
-  <h3>Your Booking Requests:</h3>
-  <div class="mentor-requests">
-
-     <% mentor.bookings.each do |booking| %>
-      <%= render partial: "shared/mentor_request_card", locals: { booking: booking } %>
-      <% end %>
-  <% end %>
+      <div class="grid-2">
+        <div class="grid-items">
+          <%= render partial: "shared/mentor_card", locals: { mentor: mentor } %>
+        </div>
+        <div>
+          <h3>Your Booking Requests:</h3>
+          <div class="mentor-requests">
+           <% mentor.bookings.each do |booking| %>
+            <%= render partial: "shared/mentor_request_card", locals: { booking: booking } %>
+            <% end %>
+         </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-  </div>
-</div>

@@ -1,4 +1,9 @@
 <div class="booking-request">
+  <div class="request-image">
+    <% if booking.user.avatar.attached? %>
+        <%= cl_image_tag booking.user.avatar.key, height: 50, width: 50, crop: :fill %>
+      <% end %>
+    </div>
   <div class="request-content">
     <p>Requested Mentee: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
     <p class="card-text">Requested Date: <%= booking.start_date %> - <%= booking.end_date %> </p>
