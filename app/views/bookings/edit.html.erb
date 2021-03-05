@@ -1,5 +1,4 @@
-  <%= simple_form_for [@mentor, @booking] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date%>
-  <%= f.button :submit, class: "btn btn-success" %>
-<% end %>
+<div class="d-flex flex-column align-items-center">
+  <h1>Update Booking</h1>
+   <%= render 'form' %>
+</div>
