@@ -7,9 +7,9 @@
     <div>
       <h2>Mentor: <%= booking.mentor.title %> </h2>
       <p class="card-text my-2"> <%= booking.start_date %> - <%= booking.end_date %> </p>
-      <%= link_to 'Show', booking, class:"btn btn-primary" %>
       <% if booking.user == current_user %>
-        <%= link_to 'Edit', edit_booking_path(booking), class:"btn btn-secondary" %>
+        <%= link_to 'Edit', edit_booking_path(booking), class:"btn btn-link-naked" %>
+        <%= link_to 'Cancel', booking_path(booking), method: :delete, data: { confirm: 'Are you sure you want to cancel your booking?' }, class:"btn btn-link-naked" %>
       <% end %>
     </div>
     <h2 class="card-trip-pricing"> $<%= booking.price %> </h2>
